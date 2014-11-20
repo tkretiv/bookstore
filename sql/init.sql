@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS  bookstore CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS bookstore CHARACTER SET utf8 COLLATE utf8_general_ci;
 use bookstore;
 
 CREATE TABLE  IF NOT EXISTS books (
