@@ -26,4 +26,3 @@ amount_sale int(10),
 bookstock_balance int(10),
 FOREIGN KEY (isbn) REFERENCES books(isbn)
 );
-
