@@ -32,7 +32,18 @@ html, body {
 .func {
 	display: inline-block;
 	width: 67.5%;
-	height: 36%;
+	/*height: 36%;*/
+}
+
+.deliveryInfo {
+	width: 30%;
+  	margin: 20px 40px;
+  	display: inline-block;
+}
+
+.deliveryInfo input {
+  display: block;
+  margin-bottom: 10px;
 }
 
 .gen_srchres {
