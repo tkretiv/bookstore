@@ -1,32 +1,44 @@
 html, body {
 	height: 100%;
+	width: 100%;
 	font-size: 100%;
-	background-color: #DDD
+	font-family: Lato, sans-serif;
+	background-color: #FFF;
 }
 
+
+/* Boxes */
+
 .box {
+	vertical-align: top;
+	overflow: auto;
 	padding: 0;
-	margin: 0.5%;
-	border: 1px solid #AAA;
-	border-radius: 2px;
+	margin: 1px;
+	/* border: 2px solid #AAA; */
+	border-radius: 2px;  
+	font-family: Lato, sans-serif;
+	background-color: #FAFAFA
 }
 
 .navtop {
 	display: inline-block;
-	width: 28%;
-	height: 20%;
+	width: 67.5%;
+	height: 160px; 
 }
 
-.logo {
-	display: inline-block;
-	width: 38%;
-	height: 20%;
-}
+	/* .logo {
+		display: inline-block;
+		width: 38.5%;
+		min-height: 20%;
+		font-size:200%;
+		border: none; 
+		text-align: center;
+	} */
 
 .gen_srch {
 	display: inline-block;
 	width: 28%;
-	height: 20%;
+	height: 160px;
 }
 
 .func {
@@ -50,69 +62,146 @@ html, body {
 	display: inline-block;
 	width: 28%;
 	height: 36%;
+
 }
 
 .func_res {
 	display: inline-block;
 	width: 67.5%;
-	/* height: 36%; */
+	height: 36%;
+	overflow: initial;
 }
 
 .navbtm {
 	display: inline-block;
 	width: 28%;
-	height: 36%;
+	min-height: 23.5%; 
+	margin: 1px 0 0 4px; 
 	position: fixed;
+	padding-top: 7%;
+	padding-bottom: 0;
 }
+
+/* Buttons */
+
+.btn {
+	display: block;
+	text-align: left;
+	width: 164px; 
+	-webkit-border-radius: 2;
+	-moz-border-radius: 2;
+	border-radius: 2px;
+	border: 0;
+	font-family: Lato;
+	color: #ffffff;
+	font-size: 18px;
+	padding: 16px 2px 2px 2px;
+	background: #DDD;
+	text-decoration: none;
+
+}
+
+.btn:hover {
+	opacity: 0.5;
+	text-decoration: none;
+}
+
+.btmr {
+	margin:auto 0 0 auto;
+	text-align: right;
+	
+
+	
+	
+}
+
+.red {
+	background-color: #F10006;
+}
+
+.yellow {
+	background-color: #F4E000
+}
+
+.blue {
+	background-color: #0436A3;
+}
+
+.lblue {
+	background-color: #02689A;
+
+}
+
 
 /* CSS - Cascading Style Sheet */
 /* Palette color codes */
-/* Palette URL: http://paletton.com/#uid=30n0p0k++mX+++v++GLN-lLWke4 */
+/* Palette URL: http://paletton.com/#uid=c3s5C3K1G0kPZtiUNWuTpDoMDouKdjK */
 
 /* Feel free to copy&paste color codes to your application */
 
 
 /* As hex codes */
 
-.color-primary-0 { color: #B74600 }	/* Main Primary color */
-.color-primary-1 { color: #FF6200 }
-.color-primary-2 { color: #FF6200 }
-.color-primary-3 { color: #AD4200 }
-.color-primary-4 { color: #702B00 }
+/* CSS - Cascading Style Sheet */
+/* Palette color codes */
+/* Palette URL: http://paletton.com/#uid=c3s5C3K1G0kUeu-XqZ5W+GSQ+pMNRl2 */
 
-.color-secondary-1-0 { color: #003C77 }	/* Main Secondary color (1) */
-.color-secondary-1-1 { color: #0081FE }
-.color-secondary-1-2 { color: #0065C6 }
-.color-secondary-1-3 { color: #033B71 }
-.color-secondary-1-4 { color: #012549 }
+/* Feel free to copy&paste color codes to your application */
 
-.color-secondary-2-0 { color: #0E9600 }	/* Main Secondary color (2) */
-.color-secondary-2-1 { color: #18FE00 }
-.color-secondary-2-2 { color: #15E200 }
-.color-secondary-2-3 { color: #0D8E00 }
-.color-secondary-2-4 { color: #095C00 }
+
+/* As hex codes */
+
+.color-primary-0 { color: #02689A }	/* Main Primary color */
+.color-primary-1 { color: #01A9F9 }
+.color-primary-2 { color: #0184C4 }
+.color-primary-3 { color: #025882 }
+.color-primary-4 { color: #02486A }
+
+.color-secondary-1-0 { color: #0436A3 }	/* Main Secondary color (1) */
+.color-secondary-1-1 { color: #0352FA }
+.color-secondary-1-2 { color: #0342CA }
+.color-secondary-1-3 { color: #042F89 }
+.color-secondary-1-4 { color: #052770 }
+
+.color-secondary-2-0 { color: #F4E000 }	/* Main Secondary color (2) */
+.color-secondary-2-1 { color: #FFEB00 }
+.color-secondary-2-2 { color: #FFEB00 }
+.color-secondary-2-3 { color: #CDBD00 }
+.color-secondary-2-4 { color: #A89A00 }
+
+.color-complement-0 { color: #F10006 }	/* Main Complement color */
+.color-complement-1 { color: #FF0007 }
+.color-complement-2 { color: #FE0006 }
+.color-complement-3 { color: #CC0005 }
+.color-complement-4 { color: #A60004 }
 
 
 
 /* As RGBa codes */
 
-.rgba-primary-0 { color: rgba(183, 70,  0,1) }	/* Main Primary color */
-.rgba-primary-1 { color: rgba(255, 98,  0,1) }
-.rgba-primary-2 { color: rgba(255, 98,  0,1) }
-.rgba-primary-3 { color: rgba(173, 66,  0,1) }
-.rgba-primary-4 { color: rgba(112, 43,  0,1) }
+.rgba-primary-0 { color: rgba(  2,104,154,1) }	/* Main Primary color */
+.rgba-primary-1 { color: rgba(  1,169,249,1) }
+.rgba-primary-2 { color: rgba(  1,132,196,1) }
+.rgba-primary-3 { color: rgba(  2, 88,130,1) }
+.rgba-primary-4 { color: rgba(  2, 72,106,1) }
 
-.rgba-secondary-1-0 { color: rgba(  0, 60,119,1) }	/* Main Secondary color (1) */
-.rgba-secondary-1-1 { color: rgba(  0,129,254,1) }
-.rgba-secondary-1-2 { color: rgba(  0,101,198,1) }
-.rgba-secondary-1-3 { color: rgba(  3, 59,113,1) }
-.rgba-secondary-1-4 { color: rgba(  1, 37, 73,1) }
+.rgba-secondary-1-0 { color: rgba(  4, 54,163,1) }	/* Main Secondary color (1) */
+.rgba-secondary-1-1 { color: rgba(  3, 82,250,1) }
+.rgba-secondary-1-2 { color: rgba(  3, 66,202,1) }
+.rgba-secondary-1-3 { color: rgba(  4, 47,137,1) }
+.rgba-secondary-1-4 { color: rgba(  5, 39,112,1) }
 
-.rgba-secondary-2-0 { color: rgba( 14,150,  0,1) }	/* Main Secondary color (2) */
-.rgba-secondary-2-1 { color: rgba( 24,254,  0,1) }
-.rgba-secondary-2-2 { color: rgba( 21,226,  0,1) }
-.rgba-secondary-2-3 { color: rgba( 13,142,  0,1) }
-.rgba-secondary-2-4 { color: rgba(  9, 92,  0,1) }
+.rgba-secondary-2-0 { color: rgba(244,224,  0,1) }	/* Main Secondary color (2) */
+.rgba-secondary-2-1 { color: rgba(255,235,  0,1) }
+.rgba-secondary-2-2 { color: rgba(255,235,  0,1) }
+.rgba-secondary-2-3 { color: rgba(205,189,  0,1) }
+.rgba-secondary-2-4 { color: rgba(168,154,  0,1) }
+
+.rgba-complement-0 { color: rgba(241,  0,  6,1) }	/* Main Complement color */
+.rgba-complement-1 { color: rgba(255,  0,  7,1) }
+.rgba-complement-2 { color: rgba(254,  0,  6,1) }
+.rgba-complement-3 { color: rgba(204,  0,  5,1) }
+.rgba-complement-4 { color: rgba(166,  0,  4,1) }
 
 
 
