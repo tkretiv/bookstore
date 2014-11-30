@@ -82,6 +82,10 @@ html, body {
 	padding-bottom: 0;
 }
 
+.formParentWrapper form {
+	display: none;
+}
+
 /* Buttons */
 
 .btn {

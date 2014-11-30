@@ -114,4 +114,12 @@ $(function(){
 	});
 	return false;
 	});
+
+  $(".navbtm button").click(function(){
+    $(".formParentWrapper").children().hide();
+
+    var thisBtnValue = $(this).val();
+
+      $(".formParentWrapper").children("."+thisBtnValue+"Form").show();
+  });
 });
