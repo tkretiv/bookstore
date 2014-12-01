@@ -120,6 +120,7 @@ label {
 .btn:hover {
 	opacity: 0.5;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .btmr {
