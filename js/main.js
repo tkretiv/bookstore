@@ -90,15 +90,7 @@ $(function(){
 	return false;
 	});
 
-  $(".navtop button").click(function(){
-    $(".formParentWrapper").children().hide();
-
-    var thisBtnValue = $(this).val();
-
-      $(".formParentWrapper").children("."+thisBtnValue+"Form").show();
-  });
-
-  $(".navbtm button").click(function(){
+  $(".navtop button, .navbtm button").click(function(){
     $(".formParentWrapper").children().hide();
 
     var thisBtnValue = $(this).val();
