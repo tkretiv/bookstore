@@ -6,28 +6,25 @@ html, body {
 	background-color: #FFF;
 }
 
-
 /* Boxes */
 
 .box {
+	display: inline-block;
 	vertical-align: top;
 	overflow: auto;
 	padding: 0;
 	margin: 1px;
-	/* border: 2px solid #AAA; */
 	border-radius: 2px;  
 	font-family: Lato, sans-serif;
 	background-color: #FAFAFA
 }
 
 .navtop {
-	display: inline-block;
 	width: 67.5%;
-	height: 160px; 
+	height: 170px; 
 }
 
 	/* .logo {
-		display: inline-block;
 		width: 38.5%;
 		min-height: 20%;
 		font-size:200%;
@@ -36,50 +33,62 @@ html, body {
 	} */
 
 .gen_srch {
-	display: inline-block;
 	width: 28%;
-	height: 160px;
+	height: 170px;
 }
 
 .func {
-	display: inline-block;
 	width: 67.5%;
 	height: 36%;
 }
 
-.deliveryInfo {
-	width: 30%;
-  	margin: 20px 40px;
-  	display: inline-block;
-}
-
-.deliveryInfo input {
-  display: block;
-  margin-bottom: 10px;
-}
-
 .gen_srchres {
-	display: inline-block;
 	width: 28%;
 	height: 36%;
-
 }
 
 .func_res {
-	display: inline-block;
 	width: 67.5%;
 	height: 36%;
 	overflow: initial;
 }
 
 .navbtm {
-	display: inline-block;
 	width: 28%;
 	min-height: 23.5%; 
 	margin: 1px 0 0 4px; 
 	position: fixed;
 	padding-top: 7%;
 	padding-bottom: 0;
+}
+
+
+
+/* Forms and form elements */
+
+fieldset {
+	margin: 5px;
+	border: 5px solid #777;
+	padding: 10px 0 10px 10px;
+}
+
+fieldset legend {
+	padding: 0 8px 0 8px;
+	font-size: 130%;
+}
+
+input {
+	margin: 5px 0 5px 0;
+}
+
+.deliveryInfo {
+	width: 100%;
+}
+
+label {
+	display: inline-block;
+  	margin: 0;
+  	min-width: 88px;
 }
 
 .formParentWrapper form {
@@ -96,13 +105,12 @@ html, body {
 	-moz-border-radius: 2;
 	border-radius: 2px;
 	border: 0;
-	font-family: Lato;
+	font-family: Lato, sans-serif;
 	color: #ffffff;
 	font-size: 18px;
 	padding: 16px 2px 2px 2px;
 	background: #DDD;
 	text-decoration: none;
-
 }
 
 .btn:hover {
