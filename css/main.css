@@ -81,7 +81,7 @@ input {
 	margin: 5px 0 5px 0;
 }
 
-.deliveryInfo {
+.formParentWrapper {
 	width: 100%;
 }
 
@@ -92,6 +92,10 @@ label {
 }
 
 .formParentWrapper form {
+	display: none;
+}
+
+.showresults {
 	display: none;
 }
 
