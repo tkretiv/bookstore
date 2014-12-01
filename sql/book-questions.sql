@@ -37,4 +37,4 @@ Select b.isbn, b.name, b.author,
 	 where t.isbn=b.isbn 
 	 group by isbn) bookstore_balance 
 from books b 
-where isbn like {isbn} and upper(author) like upper({author}) and upper(name) like upper({name});
+where b.isbn like {isbn} and upper(b.author) like upper({author}) and upper(b.name) like upper({name});
