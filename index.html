@@ -21,7 +21,7 @@
 			<button class="btn red delvy" value="delivery">Leverans</button>
 			<button class="btn yellow sales" value="sales">Försäljning</button>
 			<button class="btn blue reports">Rapporter</button>
-			<button class="btn lblue cst_srch">Kundsök</button> 
+			<button class="btn lblue cst_srch" value="search">Kundsök</button> 
 		</div>
 		<!-- <div class="logo box">Booksy keeper</div> -->
 		<div class="gen_srch box">gen_srch</div>
@@ -52,6 +52,24 @@
 				    	<br>
 				    <label>
 						<input type="submit" value="Registrera">
+						</label>
+				</fieldset>
+	  		</form>
+	  		<form class="searchInfo searchForm">
+  				<fieldset>
+  					<legend>Kundsök</legend>
+		  			<label for="isbn">ISBN<br>
+			        	<input id="isbn" type="text" name="isbn" size="13" data-value-type="number">
+			        </label>
+		    		<label for="name">Titel<br>
+			        	<input id="name" type="text" name="name" size="40">
+			        	</label>
+			        <label for="author">Författare<br>
+			        	<input id="author" type="text" name="author" size="40">
+			        	</label>
+			        <br>
+				    <label>
+						<input type="submit" value="Sök!">
 						</label>
 				</fieldset>
 	  		</form>
