@@ -19,8 +19,7 @@ FROM books, book_delivery WHERE book_delivery.isbn={isbn} && book_delivery.amoun
 
 # show delivery
 SELECT books.isbn, books.name, books.author, book_delivery.amount_delivery, book_delivery.fprice, book_delivery.bookshelf 
-FROM books, book_delivery WHERE book_delivery.isbn=books.isbn;
-
+FROM books, book_delivery WHERE book_delivery.isbn=books.isbn ORDER BY date_delivery DESC LIMIT 1;
 #kundsearching
 Select b.isbn, b.name, b.author, 
 	(select kund_price 
