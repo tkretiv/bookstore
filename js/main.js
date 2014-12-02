@@ -42,8 +42,14 @@ $(function(){
         isbn: JSON.stringify(deliveryInfo["isbn"])
   },
   success: function(data) {
-    console.log("show delivery: ", deliveryInfo);
+    console.log("show delivery: ", data);
     $(".showresults").show(data);
+    $("#risbn:text").val(data[0].isbn);
+    $("#rname:text").val(data[0].name);
+    $("#rauthor:text").val(data[0].author);
+    $("#ramount_delivery:text").val(data[0].amount_delivery);
+    $("#rfprice:text").val(data[0].fprice);
+    $("#rbookshelf:text").val(data[0].bookshelf);
 
         },
   error: function(data){
@@ -90,6 +96,7 @@ $(function(){
 
   $(".navtop button, .navbtm button").click(function(){
     $(".formParentWrapper").children().hide();
+    $(".func_res").children().hide();
 
     var thisBtnValue = $(this).val();
 
