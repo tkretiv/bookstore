@@ -1,5 +1,7 @@
 $(function(){
 
+  // Register delivery
+
   function registerDelivery(deliveryInfo) {
     $.ajax({
       // Use Nodebite's magic library
@@ -18,16 +20,41 @@ $(function(){
         bookshelf: JSON.stringify(deliveryInfo["bookshelf"])
       },
       // When we have got an response from the server
-      // run userLogin()
+      // run showInfoResult
       success: function(data) {
-      console.log("registerDelivery success: ", data);
+      console.log("registerDelivery success: ", deliveryInfo);
       showInfoResult(deliveryInfo);
       }
     });
   }
 
+  // Receipt for registered delivery
 
-	$(".func .deliveryInfo").submit(function() {
+  function showInfoResult(deliveryInfo) {
+    $.ajax({
+      // Use Nodebite's magic library
+      url:"libs/sql-ajax-json.php",
+      // Expect json in return
+      dataType: "json",
+      data: {
+        sql: "sql/book-questions.sql",
+        run: "show delivery",
+        isbn: JSON.stringify(deliveryInfo["isbn"])
+  },
+  success: function(data) {
+    console.log("show delivery: ", deliveryInfo);
+    $(".showresults").show(data);
+
+        },
+  error: function(data){
+    console.log("You failed hard!");
+    }
+    });
+  }
+
+	// Register book 
+
+  $(".func .deliveryInfo").submit(function() {
 
 	var deliveryInfo = {};
 
@@ -35,10 +62,7 @@ $(function(){
       deliveryInfo[this.name] = $(this).val();
     });
 
-
-
 		console.log("deliveryInfo: ", deliveryInfo);
-
 
 	$.ajax({
       // Use Nodebite's magic library
@@ -61,6 +85,8 @@ $(function(){
 	});
 	return false;
 	});
+
+  // Clickhandler for nav buttons
 
   $(".navtop button, .navbtm button").click(function(){
     $(".formParentWrapper").children().hide();
