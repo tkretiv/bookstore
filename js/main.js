@@ -1,26 +1,5 @@
 $(function(){
 
-	function verifyDelivery(deliveryInfo) {
-	$.ajax({
-      // Use Nodebite's magic library
-      url:"libs/sql-ajax-json.php",
-      // Expect json in return
-      dataType: "json",
-      data: {
-        sql: "sql/book-questions.sql",
-        run: "get book",
-        isbn: JSON.stringify(deliveryInfo["isbn"])
-	},
-	success: function(data) {
-		console.log("verifyDelivery: ", data);
-    registerDelivery(deliveryInfo);
-        },
-	error: function(data){
-		console.log("You failed hard!");
-		}
-	});
-  }
-
   function registerDelivery(deliveryInfo) {
     $.ajax({
       // Use Nodebite's magic library
@@ -43,9 +22,6 @@ $(function(){
       success: function(data) {
       console.log("registerDelivery success: ", data);
       showInfoResult(deliveryInfo);
-      },
-      error: function(data) {
-        console.log("registerDelivery failed: ", data);
       }
     });
   }
@@ -80,10 +56,6 @@ $(function(){
 		console.log("1. form successfully submitted!");
 		console.log("data: ", data);
     registerDelivery (deliveryInfo);
-		
-	},
-	error: function(data){
-		console.log("error: ", data);
 	}
 		
 	});
