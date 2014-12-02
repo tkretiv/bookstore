@@ -99,6 +99,10 @@ label {
 	display: none;
 }
 
+.showkundsearch {
+	display: none;
+}
+
 /* Buttons */
 
 .btn {
@@ -145,6 +149,27 @@ label {
 
 }
 
+.searchResultat article {
+	padding: 1px;
+	font-weight: bold;
+	border: 2px solid #ccc;
+}
+
+.showkundsearch article span {
+	display:inline-block;
+	vertical-align: middle;
+  width:19%;
+}
+.showkundsearch article:nth-child(odd){
+  background-color:#aac;
+  border-top: 2px solid #aaa;
+}
+
+.showkundsearch article {
+	margin: 2px 0;
+	border: 1px solid #bbb;
+	padding: 3px;
+}
 
 /* CSS - Cascading Style Sheet */
 /* Palette color codes */
