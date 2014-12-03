@@ -36,24 +36,6 @@ CREATE TABLE `History_kundprice` (
   `data_change` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-DROP TRIGGER IF EXISTS `calc_custprice`;
-DELIMITER //
-CREATE TRIGGER `calc_custprice` AFTER INSERT ON `book_delivery`
- FOR EACH ROW Begin
-
-   Declare v_kprice decimal (9,2) DEFAULT 0.00;
-   
-   SET v_kprice = NEW.fprice * 1.8 * 1.06;
-    
-      insert into history_kundprice (isbn, kund_price)
-       values (NEW.isbn, v_kprice);
-   
-
-   end
-//
-DELIMITER ;
-
 CREATE TABLE `book_sales` (
   `isbn` varchar(13) NOT NULL,
   `date_sale` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -65,17 +47,6 @@ INSERT INTO `book_sales` VALUES
 ('9781550021912', '2014-11-24 11:20:23', 1, NULL);
 
 
-DROP TRIGGER IF EXISTS `Custprice_changed`;
-DELIMITER //
-CREATE TRIGGER `Custprice_changed` BEFORE UPDATE ON `history_kundprice`
- FOR EACH ROW Begin
-       If OLD.kund_price <> NEW.kund_price THEN
-         insert into history_kundprice (isbn, kund_price)
-         VALUES (OLD.isbn, NEW.kund_price);
-       end if;
-    end
-//
-DELIMITER ;
 INSERT INTO `book_delivery` VALUES
 ('9780932633163', '2014-11-24 09:30:51', 10, '200.00', 'A1'),
 ('9780932633699', '2014-11-24 09:30:51', 5, '250.00', 'A2'),

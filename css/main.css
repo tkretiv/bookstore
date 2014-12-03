@@ -121,6 +121,11 @@ label {
 	text-decoration: none;
 }
 
+.cprice {
+	font-size: 9pt;
+	padding-top: 5px;
+}
+
 .btn:hover {
 	opacity: 0.5;
 	text-decoration: none;
