@@ -92,6 +92,14 @@ $(function(){
 	return false;
 	});
 
+  function RensaInputs(FormClassName) {
+   var x = $(FormClassName);
+     x.find("input").not("input[type='submit']").each(function()
+      {
+        $(this).val("");
+      });
+    }
+
   // Clickhandler for nav buttons
 
   $(".navtop button, .navbtm button").click(function(){
@@ -100,6 +108,7 @@ $(function(){
 
     var thisBtnValue = $(this).val();
 
+      RensaInputs("."+thisBtnValue+"Form");
       $(".formParentWrapper").children("."+thisBtnValue+"Form").show();
   });
 });
