@@ -185,7 +185,7 @@ $(function(){
     //if the user is not entering a sale price manually
     if (!ownPrice)
     {
-      $("#kund_price").val(Math.round(fprice*1.8*1.06));
+      $("#kund_price, #rkund_price").val(Math.round(fprice*1.8*1.06));
     }
   });
 
