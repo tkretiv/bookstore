@@ -46,3 +46,30 @@ VALUES ({isbn}, {kund_price});
 INSERT INTO history_kundprice (isbn, kund_price)
 VALUES ({isbn},({fprice}*1.8*1.06))
 
+# rapport
+ 	Select b.isbn, b.name, b.author, 
+	bd.fprice, bd.amount_delivery, bd.fprice*bd.amount_delivery Delivery_costnad,
+	(select kund_price 
+	from history_kundprice hk 
+	where hk.isbn = b.isbn and hk.data_change<=bos.date_sale
+	order by data_change desc 
+	limit 1) kund_price, bos.date_sale,
+	ifnull(bos.amount_sale,0) Sold,	
+    ifnull(bos.amount_sale,0)*ifnull(bos.hk,0) sum_sold,
+	bd.amount_delivery-ifnull((select sum(amount_sale) 
+						from book_sales bbs
+						where bbs.isbn=bd.isbn
+							and bbs.date_sale<=bos.date_sale),0) bookstore_balance
+from books b 
+join book_delivery bd on (bd.isbn=b.isbn)
+left outer join (select bs.isbn, bs.date_sale, bs.amount_sale,(select  kund_price
+      		from history_kundprice hp   
+      		where hp.data_change<=ifnull(bs.date_sale, now())
+                 and hp.isbn=bs.isbn
+      		order by data_change desc
+      		limit 1 
+      		) hk
+from  book_sales bs 
+where bs.date_sale<=now())  bos on (bos.isbn=b.isbn)
+where b.isbn like  {isbn} and upper(b.author) like upper({author}) and upper(b.name) like upper({name})
+order by b.isbn, bd.date_delivery, bos.date_sale
