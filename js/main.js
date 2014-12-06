@@ -156,22 +156,14 @@ $(function(){
   $(".deliveryInfo.deliveryForm input[type='checkbox']").click(function()
   {
     var theCheckBox = $(".deliveryInfo.deliveryForm input[type='checkbox']:checked");
-    var fprice = $(".deliveryInfo.deliveryForm input[name='fprice']").val();
     //if manual price checkbox is checked
     if (theCheckBox.length)
     {
-      //set price input field to required and not disabled
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").attr("disabled", false);
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").attr("required", true);
       ownPrice = true;
     }
-    //if manual price checkbox is not checked/unchecked
+    //if manual price checkbox is unchecked
     else
     {
-      //set price input field to disabled and not required
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").attr("disabled", true);
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").attr("required", false);
-      //and show the automatic sale price again
       $(".deliveryInfo.deliveryForm input[name='kund_price']").val(Math.round(f_price*1.8));
       ownPrice = false;
     }
@@ -182,7 +174,7 @@ $(function(){
   $(".deliveryInfo.deliveryForm input[name='fprice']").keyup(function()
   {
     var fprice = $(this).val();
-    //if the user is not entering a sale price manually
+    //setting a automatic price
     if (!ownPrice)
     {
       $("#kund_price, #rkund_price").val(Math.round(fprice*1.8*1.06));
