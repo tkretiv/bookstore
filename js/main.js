@@ -58,7 +58,7 @@ $(function(){
   }
 
   // Receipt for registered delivery
-  /* Delivery recieved and shown
+
   function showInfoResult(deliveryInfo) {
     $.ajax({
       // Use Nodebite's magic library
@@ -67,8 +67,7 @@ $(function(){
       dataType: "json",
       data: {
         sql: "sql/book-questions.sql",
-        run: "show delivery",
-        isbn: JSON.stringify(deliveryInfo["isbn"])
+        run: "show delivery"
     },
     success: function(data) {
       console.log("show delivery: ", data);
@@ -79,7 +78,6 @@ $(function(){
       $("#ramount_delivery:text").val(data[0].amount_delivery);
       $("#rfprice:text").val(data[0].fprice);
       $("#rbookshelf:text").val(data[0].bookshelf);
-      $("#rkund_price:text").val(data[0].kund_price);
 
     },
     error: function(data){
@@ -87,7 +85,6 @@ $(function(){
       }
     });
   }
-  */
 
   // Register book 
 
@@ -117,6 +114,7 @@ $(function(){
         console.log("1. form successfully submitted!");
         console.log("data: ", data);
       registerDelivery(deliveryInfo);
+      $(".deliveryInfo.deliveryForm")[0].reset();
     }
   });
   return false;
