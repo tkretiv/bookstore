@@ -1,28 +1,6 @@
 $(function(){
 
   // Register delivery
-  function changePrice(deliveryInfo) {
-    $.ajax({
-      // Use Nodebite's magic library
-      url:"libs/sql-ajax-json.php",
-      // Expect json in return
-      dataType: "json",
-      data: {
-        sql: "sql/book-questions.sql",
-        run: "change customerprice",
-        isbn: JSON.stringify(deliveryInfo["isbn"]),
-        kund_price: JSON.stringify(deliveryInfo["kund_price"])
-      },
-      success: function(data) {
-        console.log("changePrice success: ", deliveryInfo);
-        //run this here????
-        showInfoResult(deliveryInfo);
-      },
-      error: function(data) {
-        console.log("changePrice error: ", deliveryInfo);
-      }
-    });
-  }
 
   function insertPrice(deliveryInfo) {
     $.ajax({
@@ -34,7 +12,7 @@ $(function(){
         sql: "sql/book-questions.sql",
         run: "insert customerprice",
         isbn: JSON.stringify(deliveryInfo["isbn"]),
-        fprice: deliveryInfo["fprice"]
+        kund_price: deliveryInfo["kund_price"]
       },
       success: function(data) {
         console.log("insertPrice success: ", deliveryInfo);
@@ -68,10 +46,11 @@ $(function(){
       // run showInfoResult
       success: function(data) {
         console.log("registerDelivery success: ", deliveryInfo);
-        if ($("checkbox:checked").length) {
-            changePrice(deliveryInfo);
+        if (deliveryInfo.kund_price) {
+            insertPrice(deliveryInfo);
 
         } else {
+            deliveryInfo.kund_price = Math.round(deliveryInfo.fprice*1.8, 2);
             insertPrice(deliveryInfo);
         }
       }
@@ -79,7 +58,7 @@ $(function(){
   }
 
   // Receipt for registered delivery
-
+  /* Delivery recieved and shown
   function showInfoResult(deliveryInfo) {
     $.ajax({
       // Use Nodebite's magic library
@@ -88,7 +67,8 @@ $(function(){
       dataType: "json",
       data: {
         sql: "sql/book-questions.sql",
-        run: "show delivery"
+        run: "show delivery",
+        isbn: JSON.stringify(deliveryInfo["isbn"])
     },
     success: function(data) {
       console.log("show delivery: ", data);
@@ -107,6 +87,7 @@ $(function(){
       }
     });
   }
+  */
 
   // Register book 
 
@@ -136,7 +117,6 @@ $(function(){
         console.log("1. form successfully submitted!");
         console.log("data: ", data);
       registerDelivery(deliveryInfo);
-      $(".deliveryInfo.deliveryForm")[0].reset();
     }
   });
   return false;
@@ -156,7 +136,7 @@ $(function(){
     else
     {
       //and show the automatic sale price again
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").val(Math.round(fprice*1.8*1.06));
+      $(".deliveryInfo.deliveryForm input[name='kund_price']").val(Math.round(fprice*1.8));
       ownPrice = false;
     }
   });

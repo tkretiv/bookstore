@@ -18,7 +18,7 @@ SELECT books.isbn, books.name, books.author
 FROM books, book_delivery WHERE book_delivery.isbn={isbn} && book_delivery.amount_delivery={amount_delivery} && book_delivery.fprice={fprice} && book_delivery.bookshelf={bookshelf};
 
 # show delivery
-SELECT books.isbn, books.name, books.author, book_delivery.amount_delivery, book_delivery.fprice, book_delivery.bookshelf, history_kundprice.kund_price 
+SELECT books.isbn, books.name, books.author, book_delivery.amount_delivery, book_delivery.fprice, book_delivery.bookshelf, history_kundprice.kund_price
 FROM books, book_delivery, history_kundprice WHERE book_delivery.isbn=books.isbn ORDER BY date_delivery DESC LIMIT 1;
 
 #kundsearching
@@ -38,13 +38,9 @@ Select b.isbn, b.name, b.author,
 from books b 
 where b.isbn like {isbn} and upper(b.author) like upper({author}) and upper(b.name) like upper({name});
 
-# change customerprice
-INSERT INTO history_kundprice (isbn, kund_price) 
-VALUES ({isbn}, {kund_price});
-
 # insert customerprice
 INSERT INTO history_kundprice (isbn, kund_price)
-VALUES ({isbn}, ({fprice}*1.8*1.06));
+VALUES ({isbn}, {kund_price});
 
 # rapport
  	Select b.isbn, b.name, b.author, 
