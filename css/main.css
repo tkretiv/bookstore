@@ -20,7 +20,7 @@ html, body {
 }
 
 .navtop {
-	width: 67.5%;
+	width: 96%;
 	height: 170px; 
 }
 
@@ -32,18 +32,8 @@ html, body {
 		text-align: center;
 	} */
 
-.gen_srch {
-	width: 28%;
-	height: 170px;
-}
-
 .func {
-	width: 67.5%;
-	height: 36%;
-}
-
-.gen_srchres {
-	width: 28%;
+	width: 96%;
 	height: 36%;
 }
 

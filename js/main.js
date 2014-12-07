@@ -137,19 +137,12 @@ $(function(){
         console.log("1. form successfully submitted!");
         console.log("data: ", data);
       registerDelivery(deliveryInfo);
+      $(".deliveryInfo.deliveryForm")[0].reset();
     }
   });
   return false;
   });
 
-  function RensaInputs(FormClassName)
-  {
-   var x = $(FormClassName);
-     x.find("input").not("input[type='submit']").each(function()
-      {
-        $(this).val("");
-      });
-    }
 
   //clickhandler for price
   var ownPrice = false;
@@ -190,7 +183,6 @@ $(function(){
 
     var thisBtnValue = $(this).val();
 
-      RensaInputs("."+thisBtnValue+"Form");
       $(".formParentWrapper").children("."+thisBtnValue+"Form").show();
   });
 });
