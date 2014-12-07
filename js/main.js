@@ -1,7 +1,6 @@
 $(function(){
 
   // Register delivery
-
   function changePrice(deliveryInfo) {
     $.ajax({
       // Use Nodebite's magic library
@@ -15,12 +14,12 @@ $(function(){
         kund_price: JSON.stringify(deliveryInfo["kund_price"])
       },
       success: function(data) {
-        console.log("changePrice success: ", data);
+        console.log("changePrice success: ", deliveryInfo);
         //run this here????
         showInfoResult(deliveryInfo);
       },
       error: function(data) {
-        console.log("changePrice error: ", data);
+        console.log("changePrice error: ", deliveryInfo);
       }
     });
   }
@@ -38,12 +37,12 @@ $(function(){
         fprice: deliveryInfo["fprice"]
       },
       success: function(data) {
-        console.log("insertPrice success: ", data);
+        console.log("insertPrice success: ", deliveryInfo);
         //run this here????
         showInfoResult(deliveryInfo);
       },
       error: function(data) {
-        console.log("insertPrice error: ", data);
+        console.log("insertPrice error: ", deliveryInfo);
       }
     });
   }
@@ -69,12 +68,15 @@ $(function(){
       // run showInfoResult
       success: function(data) {
         console.log("registerDelivery success: ", deliveryInfo);
+        showInfoResult(deliveryInfo);
+        /*
         if ($("#checkbox:checked").length) {
             changePrice(deliveryInfo);
 
         } else {
             insertPrice(deliveryInfo);
         }
+        */
       }
     });
   }
@@ -101,6 +103,7 @@ $(function(){
       $("#ramount_delivery:text").val(data[0].amount_delivery);
       $("#rfprice:text").val(data[0].fprice);
       $("#rbookshelf:text").val(data[0].bookshelf);
+      $("#rkund_price:text").val(data[0].kund_price);
 
     },
     error: function(data){
@@ -115,7 +118,7 @@ $(function(){
 
   var deliveryInfo = {};
 
-    $(this).find("input").not("input[type='submit']").each(function() {
+    $(this).find("input").not("input[type='submit'], input[type='checkbox']").each(function() {
       deliveryInfo[this.name] = $(this).val();
     });
 
@@ -148,21 +151,14 @@ $(function(){
   $(".deliveryInfo.deliveryForm input[type='checkbox']").click(function()
   {
     var theCheckBox = $(".deliveryInfo.deliveryForm input[type='checkbox']:checked");
-    var fprice = $(".deliveryInfo.deliveryForm input[name='fprice']").val();
     //if manual price checkbox is checked
     if (theCheckBox.length)
     {
-      //set price input field to required and not disabled
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").attr("disabled", false);
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").attr("required", true);
       ownPrice = true;
     }
     //if manual price checkbox is not checked/unchecked
     else
     {
-      //set price input field to disabled and not required
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").attr("disabled", true);
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").attr("required", false);
       //and show the automatic sale price again
       $(".deliveryInfo.deliveryForm input[name='kund_price']").val(Math.round(fprice*1.8*1.06));
       ownPrice = false;
