@@ -164,7 +164,7 @@ $(function(){
     //if manual price checkbox is unchecked
     else
     {
-      $(".deliveryInfo.deliveryForm input[name='kund_price']").val(Math.round(f_price*1.8));
+      $(".deliveryInfo.deliveryForm input[name='kund_price']").val(Math.round(f_price*1.8*1.06));
       ownPrice = false;
     }
   });
