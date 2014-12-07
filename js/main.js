@@ -68,15 +68,12 @@ $(function(){
       // run showInfoResult
       success: function(data) {
         console.log("registerDelivery success: ", deliveryInfo);
-        showInfoResult(deliveryInfo);
-        /*
-        if ($("#checkbox:checked").length) {
+        if ($("checkbox:checked").length) {
             changePrice(deliveryInfo);
 
         } else {
             insertPrice(deliveryInfo);
         }
-        */
       }
     });
   }
@@ -91,8 +88,7 @@ $(function(){
       dataType: "json",
       data: {
         sql: "sql/book-questions.sql",
-        run: "show delivery",
-        isbn: JSON.stringify(deliveryInfo["isbn"])
+        run: "show delivery"
     },
     success: function(data) {
       console.log("show delivery: ", data);
@@ -177,6 +173,13 @@ $(function(){
     }
   });
 
+   function RensaInputs(FormClassName) {
+   var x = $(FormClassName);
+     x.find("input").not("input[type='submit']").each(function()
+      {
+        $(this).val("");
+      });
+    }
 
   // Clickhandler for nav buttons
 
@@ -186,6 +189,7 @@ $(function(){
 
     var thisBtnValue = $(this).val();
 
+      RensaInputs("."+thisBtnValue+"Form");
       $(".formParentWrapper").children("."+thisBtnValue+"Form").show();
   });
 });
