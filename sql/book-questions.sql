@@ -44,7 +44,7 @@ VALUES ({isbn}, {kund_price});
 
 # insert customerprice
 INSERT INTO history_kundprice (isbn, kund_price)
-VALUES ({isbn},({fprice}*1.8*1.06))
+VALUES ({isbn}, ({fprice}*1.8*1.06));
 
 # rapport
  	Select b.isbn, b.name, b.author, 
